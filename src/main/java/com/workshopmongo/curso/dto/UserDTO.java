@@ -6,7 +6,7 @@ import com.workshopmongo.curso.domain.User;
 
 public class UserDTO {
 	
-	private ObjectId id;
+	private String id;
 	
 	private String name;
 	
@@ -23,11 +23,11 @@ public class UserDTO {
 		
 	}
 
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
