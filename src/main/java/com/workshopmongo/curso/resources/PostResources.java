@@ -37,7 +37,7 @@ public class PostResources {
 		List<Post> lista = new ArrayList<Post>();
 		String texto = Url.decodeParam(text);
 		
-		lista = this.service.findByTitleContainingIgnoreCase(texto);
+		lista = this.service.searchTitle(texto);
 		
 		return ResponseEntity.ok().body(lista);
 	}
