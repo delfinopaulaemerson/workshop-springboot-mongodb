@@ -28,6 +28,11 @@ public class UserService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 		}
 	
+	public void delete(String id) {
+		this.findById(id);
+		this.repository.deleteById(id);
+	}
+	
 	
 	public User insert(User obj) {
 		
