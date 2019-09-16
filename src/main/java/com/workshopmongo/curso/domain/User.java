@@ -2,12 +2,17 @@ package com.workshopmongo.curso.domain;
 
 import java.io.Serializable;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "user")
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
+	@Id
+	private ObjectId id;
 	
 	private String name;
 	
@@ -17,18 +22,17 @@ public class User implements Serializable{
 		
 	}
 
-	public User(Integer id, String name, String email) {
-		super();
+	public User(ObjectId id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 
-	public Integer getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 
