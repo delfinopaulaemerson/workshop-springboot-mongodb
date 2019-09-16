@@ -1,7 +1,5 @@
 package com.workshopmongo.curso.dto;
 
-import org.bson.types.ObjectId;
-
 import com.workshopmongo.curso.domain.User;
 
 public class UserDTO {

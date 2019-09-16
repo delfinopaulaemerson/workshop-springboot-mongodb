@@ -3,10 +3,8 @@ package com.workshopmongo.curso.resources;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +51,16 @@ public class UserResources {
 	public ResponseEntity<Void> delete(@PathVariable String id){
 		
 		this.service.delete(id);
+		
+		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO userDTO, @PathVariable String id){
+		User obj  = this.service.formDto(userDTO);
+		obj.setId(id);
+		
+		this.service.update(obj);
 		
 		return ResponseEntity.noContent().build();
 	}

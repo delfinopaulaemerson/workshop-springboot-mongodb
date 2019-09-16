@@ -34,6 +34,20 @@ public class UserService {
 	}
 	
 	
+	public User update(User obj) {
+		User newObj = this.findById(obj.getId());
+		
+		updateData(newObj, obj);
+		
+		return this.repository.save(newObj);
+	}
+	
+	private void updateData(User newObj, User obj) {
+		newObj.setName(obj.getName());
+		newObj.setEmail(obj.getEmail());
+	}
+	
+	
 	public User insert(User obj) {
 		
 		return this.repository.save(obj);
